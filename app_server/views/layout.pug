@@ -7,7 +7,25 @@ html
     link(rel="stylesheet", href='/stylesheets/all.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    nav.navbar.fixed-top.navbar-expand-md.navbar-light
+      div.container-fluid
+        a.navbar-brand(href="/") Loc8r
+        button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarSupportedContent")
+          span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto
+            li.nav-item
+              a.nav-link(href="/about") About
+
+    .container
+      block content
+
+      //Footer
+      footer
+        .row
+          .col-12
+            small &copy; Roqeeb 2021
+    //Scripts
     script(src='/javascripts/jquery.min.js')
     script(src='/javascripts/bootstrap.bundle.min.js')
     script(src='/javascripts/bootstrap.min.js')
