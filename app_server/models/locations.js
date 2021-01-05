@@ -48,5 +48,5 @@ const locationSchema = new mongoose.Schema({
     reviews: [reviewSchema]
 });
 
-mongoose.model(location,locationSchema);
+mongoose.model('Location',locationSchema);
 locationSchema.index({coords: '2dsphere'});
