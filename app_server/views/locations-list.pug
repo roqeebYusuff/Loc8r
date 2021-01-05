@@ -1,63 +1,29 @@
 extends layout
 
+include _includes/sharedHTMLfunctions
+
 block content
   .row.banner
     .col-12
-        h1 Loc8r
-            small &nbsp; Find places to work with wifi near you
+        h1= pageHeader.title
+            small &nbsp; #{pageHeader.strapline}
   .row
     .col-12.col-md-8
-        //- p List area.
-        .card
-            .card-block
-                h4
-                    a(href="/location") Starcups
-                    small &nbsp;
-                        i.fas.fa-star
-                        i.fas.fa-star
-                        i.fas.fa-star
-                        i.fas.fa-star
-                        i.fas.fa-star
-                    span.badge.badge-pill.badge-default.float-right 100m
-                p.address 125 High Street, Reading, RG6 1PS
-                .facilities
-                    span.badge.badge-warning Hot drinks
-                    span.badge.badge-warning Food
-                    span.badge.badge-warning Premium wifi
-
-        .card
-            .card-block
-                h4
-                    a(href="/location") Cafe Hero
-                    small &nbsp;
-                        i.fas.fa-star
-                        i.fas.fa-star
-                        i.fas.fa-star
-                        i.fas.fa-star
-                        i.fas.fa-star
-                    span.badge.badge-pill.badge-default.float-right 200m
-                p.address 125 High Street, Reading, RG6 1PS
-                .facilities
-                    span.badge.badge-warning Hot drinks
-                    span.badge.badge-warning Food
-                    span.badge.badge-warning Premium wifi
-
-        .card
-            .card-block
-                h4
-                    a(href="/location") Burger Queen
-                    small &nbsp;
-                        i.fas.fa-star
-                        i.fas.fa-star
-                        i.fas.fa-star
-                        i.fas.fa-star
-                        i.fas.fa-star
-                    span.badge.badge-pill.badge-default.float-right 500m
-                p.address 125 High Street, Reading, RG6 1PS
-                .facilities
-                    span.badge.badge-warning Hot drinks
-                    span.badge.badge-warning Food
-                    span.badge.badge-warning Premium wifi
-
+        each location in locations
+            .card
+                .card-block
+                    h4
+                        a(href="/location")= location.name
+                        small &nbsp;
+                            +outputRating(location.rating)
+                            //- i.fas.fa-star
+                            //- i.fas.fa-star
+                            //- i.fas.fa-star
+                            //- i.far.fa-star
+                        span.badge.badge-pill.badge-default.float-right= location.distance
+                    p.address= location.address
+                    .facilities
+                        - for(let j = 0; j < location.facilities.length; j++)
+                          span.badge.badge-warning= location.facilities[j]
     .col-12.col-md-4
-        p.lead Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Loc8r help you find the place you're looking for.
+        p.lead= sidebar
