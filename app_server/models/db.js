@@ -12,8 +12,14 @@ const readLine = require ('readline');
 //     });
 // }
 // MLAB_URI ----- mongodb://roqeeb:roqeebyusuff@ds059957.mlab.com:59957/loc8r
-// const dbURI = process.env.MONGO_DB_URI || 'mongodb+srv://roqeeb:roqeebyusuff@cluster0.fokuz.mongodb.net/Loc8r?retryWrites=true&w=majority';
-const dbURI = 'mongodb://localhost/Loc8r';
+// const dbURI = process.env.MONGODB_URI || 'mongodb+srv://roqeeb:roqeebyusuff@cluster0.fokuz.mongodb.net/Loc8r?retryWrites=true&w=majority';
+// let dbURI = 'mongodb://localhost/Loc8r';
+// if(process.env.NODE_ENV === 'production')
+// {
+//     dbURI = process.env.MONGODB_URI
+// }
+const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/Loc8r';
+// const dbURI = 'mongodb+srv://roqeeb:oluwatoyin@first.0bwt3.mongodb.net/Loc8r?retryWrites=true&w=majority';
 mongoose.connect(dbURI, {useNewUrlParser: true});
 
 mongoose.connection.on('connected', () =>{
