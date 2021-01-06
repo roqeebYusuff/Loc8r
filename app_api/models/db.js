@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const readLine = require ('readline');
-mongodb://localhost/Loc8r
+// mongodb://localhost/Loc8r
 // const dbURI = process.env.MONGODB_URI || 'mongodb+srv://roqeeb:roqeebyusuff@cluster0.fokuz.mongodb.net/Loc8r?retryWrites=true&w=majority';
 const dbURI = process.env.MONGODB_URI;
 // let dbURI = 'mongodb://localhost/Loc8r';
