@@ -1,18 +1,14 @@
 const mongoose = require('mongoose');
 const readLine = require ('readline');
-// mongodb://localhost/Loc8r
-// const dbURI = process.env.MONGODB_URI || 'mongodb+srv://roqeeb:roqeebyusuff@cluster0.fokuz.mongodb.net/Loc8r?retryWrites=true&w=majority';
-// const dbURI = process.env.MONGODB_URI;
-let dbURI = 'mongodb://localhost/Loc8r';
+
+let dbURI = process.env.LOCAL_URI;
 if(process.env.NODE_ENV === 'production')
 {
     dbURI = process.env.MONGODB_URI
 }
 
 console.log(`The path`, dbURI);
-// console.log(`NODE_ENV`, process.env.NODE_ENV);
-// const dbURI = 'mongodb://localhost/Loc8r';
-// const dbURI = 'mongodb+srv://roqeeb:oluwatoyin@first.0bwt3.mongodb.net/Loc8r?retryWrites=true&w=majority';
+
 mongoose.connect(dbURI, {useNewUrlParser: true});
 
 mongoose.connection.on('connected', () =>{
