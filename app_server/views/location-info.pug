@@ -11,7 +11,7 @@ block content
         .row
             .col-12.col-md-6
                 p.rating
-                    +outputRating(rating)
+                    +outputRating(location.rating)
                 p= location.address
                 .card.card-primary
                     .card-block
@@ -40,7 +40,7 @@ block content
             .col-12
                 .card.card-primary.review-card
                     .card-block
-                        a.btn.btn-primary.float-right(href="/location/review/new") Add review
+                        a.btn.btn-primary.float-right(href=`/location/${location._id}/review/new`) Add review
                         h2.card-title Customer reviews
                         - if(location.reviews.length <= 0)
                             p No review
@@ -52,7 +52,7 @@ block content
                                         | &nbsp;
                                     span.reviewAuthor #{review.author} &nbsp;
                                     small.reviewTimestamp
-                                    +formatDate(review.createdOn)
+                                        +formatDate(review.createdOn)
                                 .col-12
                                     p= review.reviewText
     .col-12.col-lg-3

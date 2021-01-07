@@ -45,9 +45,10 @@ const doAddReview = (req, res, location) => {
         });
         location.save((err, location) => {
             if (err) {
-            res
-            .status(400)
-            .json(err);
+                // console.log(err);
+                res
+                    .status(400)
+                    .json(err);
         } else {
             updateAverageRating(location._id);
             const thisReview = location.reviews.slice(-1).pop();
@@ -65,7 +66,7 @@ const reviewsCreate = (req, res) => {
         Loc
             .findById(locationId)
             .select('reviews')
-            .exce((err, location) => {
+            .exec((err, location) => {
                 if(err)
                     res
                         .status(400)
