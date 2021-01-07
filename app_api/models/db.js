@@ -7,7 +7,7 @@ if(process.env.NODE_ENV === 'production')
     dbURI = process.env.MONGODB_URI
 }
 
-console.log(`The path`, dbURI);
+// console.log(`The path`, dbURI);
 
 mongoose.connect(dbURI, {useNewUrlParser: true});
 

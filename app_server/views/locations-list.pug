@@ -9,21 +9,21 @@ block content
             small &nbsp; #{pageHeader.strapline}
   .row
     .col-12.col-md-8
+        .error= message
         each location in locations
             .card
                 .card-block
                     h4
-                        a(href="/location")= location.name
+                        a(href=`/location/${location.id}`)= location.name
                         small &nbsp;
                             +outputRating(location.rating)
-                            //- i.fas.fa-star
-                            //- i.fas.fa-star
-                            //- i.fas.fa-star
-                            //- i.far.fa-star
                         span.badge.badge-pill.badge-default.float-right= location.distance
                     p.address= location.address
                     .facilities
                         - for(let j = 0; j < location.facilities.length; j++)
-                          span.badge.badge-warning= location.facilities[j]
+                          span.badge.badge-warning
+                            i.fa.fa-check
+                            | &nbsp; !{location.facilities[j]}
+                          | &nbsp;
     .col-12.col-md-4
         p.lead= sidebar
