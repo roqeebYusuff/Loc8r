@@ -5,7 +5,7 @@ const apiOptions = {
 }
 
 if(process.env.NODE_ENV === 'production'){
-    apiOptions.server = 'https://roqeebyusuff.herokuapp.com/';
+    apiOptions.server = 'https://roqeebyusuff.herokuapp.com';
 }
 // Get home page
 const formatDistance = (distance) => {
@@ -56,6 +56,7 @@ const homelist = (req, res) =>{
             maxDistance: 20
         }
     };
+    console.log(requestOptions);
     request(requestOptions, (err, {statusCode}, body) =>{
         let data = [];
         if(statusCode === 200 && body.length){
