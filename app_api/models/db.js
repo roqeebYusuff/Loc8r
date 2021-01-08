@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const readLine = require ('readline');
 
-let dbURI = 'mongodb://localhost/Loc8r';
+let dbURI = process.env.LOCAL_URI;
 if(process.env.NODE_ENV === 'production')
 {
     dbURI = process.env.MONGODB_URI
